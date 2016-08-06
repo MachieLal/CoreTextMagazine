@@ -15,6 +15,7 @@
 		823A36AA1D52E625007A0231 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 823A36A81D52E625007A0231 /* LaunchScreen.storyboard */; };
 		823A36B21D52E684007A0231 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 823A36B11D52E684007A0231 /* CoreText.framework */; };
 		823A36BA1D52ED97007A0231 /* CTView.m in Sources */ = {isa = PBXBuildFile; fileRef = 823A36B91D52ED97007A0231 /* CTView.m */; };
+		82AA958A1D56526A00BF5B4F /* MarkupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 82AA95891D56526A00BF5B4F /* MarkupParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		823A36B11D52E684007A0231 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		823A36B81D52ED97007A0231 /* CTView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTView.h; sourceTree = "<group>"; };
 		823A36B91D52ED97007A0231 /* CTView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTView.m; sourceTree = "<group>"; };
+		82AA95881D56526900BF5B4F /* MarkupParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkupParser.h; sourceTree = "<group>"; };
+		82AA95891D56526A00BF5B4F /* MarkupParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkupParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +69,8 @@
 			children = (
 				823A36B81D52ED97007A0231 /* CTView.h */,
 				823A36B91D52ED97007A0231 /* CTView.m */,
+				82AA95881D56526900BF5B4F /* MarkupParser.h */,
+				82AA95891D56526A00BF5B4F /* MarkupParser.m */,
 				823A369D1D52E625007A0231 /* AppDelegate.h */,
 				823A369E1D52E625007A0231 /* AppDelegate.m */,
 				823A36A01D52E625007A0231 /* ViewController.h */,
@@ -161,6 +166,7 @@
 				823A36A21D52E625007A0231 /* ViewController.m in Sources */,
 				823A36BA1D52ED97007A0231 /* CTView.m in Sources */,
 				823A369F1D52E625007A0231 /* AppDelegate.m in Sources */,
+				82AA958A1D56526A00BF5B4F /* MarkupParser.m in Sources */,
 				823A369C1D52E625007A0231 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,6 +316,7 @@
 				823A36B01D52E625007A0231 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
