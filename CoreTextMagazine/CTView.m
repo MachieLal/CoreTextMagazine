@@ -8,7 +8,7 @@
 
 #import "CTView.h"
 #import <CoreText/CoreText.h>
-
+#import "MarkupParser.h"
 @implementation CTView
 
 
@@ -33,18 +33,19 @@
 //                                                                                    startAngle:0
 //                                                                                      endAngle:2*M_PI
 //                                                                                     clockwise:YES]);
-    NSAttributedString* attString = [[NSAttributedString alloc]
-                                      initWithString:@"Hello core text world!"]; //2
+//    NSAttributedString* attString = [[NSAttributedString alloc]
+//                                      initWithString:@"Hello core text world!"]; //2
     
-    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)attString); //3
+    
+    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)_attString); //3
     CTFrameRef frame =
     CTFramesetterCreateFrame(framesetter,
-                             CFRangeMake(10, [attString length]), path, NULL);
+                             CFRangeMake(0, [_attString length]), path, NULL);
     
     CTFrameDraw(frame, context); //4
     
-    CFRelease(frame); //5
-    CFRelease(path);
+    CFAutorelease(frame); //5
+    CFAutorelease(path);
 //    CFRelease(path2);
 
     CFRelease(framesetter);

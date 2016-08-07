@@ -10,6 +10,11 @@
 
 @interface CTView : UIView
 
+@property (assign, nonatomic) float frameXOffset;
+@property (assign, nonatomic) float frameYOffset;
+
+@property (strong, nonatomic) NSAttributedString * attString;
+
 - (void)drawRect:(CGRect)rect;
 
 @end

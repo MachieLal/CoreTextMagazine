@@ -18,7 +18,7 @@
 {
     self = [super init];
     if (self) {
-        self.font = @"Arial";
+        self.font = @"ArialMT";
         self.color = [UIColor blackColor];
         self.strokeColor = [UIColor whiteColor];
         self.strokeWidth = 0.0;
@@ -47,7 +47,7 @@
                           componentsSeparatedByString:@"<"]; //1
         
         CTFontRef fontRef = CTFontCreateWithName((CFStringRef)self.font,
-                                                 24.0f, NULL);
+                                                 28.0f, NULL);
         
         //apply the current text style //2
         NSDictionary* attrs = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -70,26 +70,35 @@
                 //stroke color
                 NSRegularExpression* scolorRegex = [[NSRegularExpression alloc] initWithPattern:@"(?<=strokeColor=\")\\w+" options:0 error:NULL];
                 [scolorRegex enumerateMatchesInString:tag options:0 range:NSMakeRange(0, [tag length]) usingBlock:^(NSTextCheckingResult *match, NSMatchingFlags flags, BOOL *stop){
-                    if ([[tag substringWithRange:match.range] isEqualToString:@"none"]) {
+                    NSString * string = [tag substringWithRange:match.range];
+                    if ([string isEqualToString:@"none"]) {
                         self.strokeWidth = 0.0;
                     } else {
                         self.strokeWidth = -3.0;
                         SEL colorSel = NSSelectorFromString([NSString stringWithFormat: @"%@Color", [tag substringWithRange:match.range]]);
-                        self.strokeColor = [UIColor performSelector:colorSel];
+                        if ([UIColor respondsToSelector:colorSel]) {
+                            self.strokeColor = [UIColor performSelector:colorSel];
+                        }
                     }
                 }];
                 
                 //color
                 NSRegularExpression* colorRegex = [[NSRegularExpression alloc] initWithPattern:@"(?<=color=\")\\w+" options:0 error:NULL];
                 [colorRegex enumerateMatchesInString:tag options:0 range:NSMakeRange(0, [tag length]) usingBlock:^(NSTextCheckingResult *match, NSMatchingFlags flags, BOOL *stop){
-                    SEL colorSel = NSSelectorFromString([NSString stringWithFormat: @"%@Color", [tag substringWithRange:match.range]]);
-                    self.color = [UIColor performSelector:colorSel];
+                    NSString * string = [tag substringWithRange:match.range];
+
+                    SEL colorSel = NSSelectorFromString([NSString stringWithFormat: @"%@Color", string]);
+                    if ([UIColor respondsToSelector:colorSel]) {
+                        self.color = [UIColor performSelector:colorSel];
+                    }
                 }];
                 
                 //face
                 NSRegularExpression* faceRegex = [[NSRegularExpression alloc] initWithPattern:@"(?<=face=\")[^\"]+" options:0 error:NULL];
                 [faceRegex enumerateMatchesInString:tag options:0 range:NSMakeRange(0, [tag length]) usingBlock:^(NSTextCheckingResult *match, NSMatchingFlags flags, BOOL *stop){
-                    self.font = [tag substringWithRange:match.range];
+                    NSString * string = [tag substringWithRange:match.range];
+
+                    self.font = string;
                 }];
             } //end of font parsing
         }
