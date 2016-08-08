@@ -17,6 +17,7 @@
 		823A36BA1D52ED97007A0231 /* CTView.m in Sources */ = {isa = PBXBuildFile; fileRef = 823A36B91D52ED97007A0231 /* CTView.m */; };
 		82AA958A1D56526A00BF5B4F /* MarkupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 82AA95891D56526A00BF5B4F /* MarkupParser.m */; };
 		82E78EF51D57272D0040B015 /* text.txt in Resources */ = {isa = PBXBuildFile; fileRef = 82E78EF41D57272D0040B015 /* text.txt */; };
+		82E78EF81D573A8B0040B015 /* CTColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E78EF71D573A8B0040B015 /* CTColumnView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,8 @@
 		82AA95881D56526900BF5B4F /* MarkupParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkupParser.h; sourceTree = "<group>"; };
 		82AA95891D56526A00BF5B4F /* MarkupParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkupParser.m; sourceTree = "<group>"; };
 		82E78EF41D57272D0040B015 /* text.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text.txt; sourceTree = "<group>"; };
+		82E78EF61D573A8B0040B015 /* CTColumnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTColumnView.h; sourceTree = "<group>"; };
+		82E78EF71D573A8B0040B015 /* CTColumnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTColumnView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +72,8 @@
 		823A36991D52E625007A0231 /* CoreTextMagazine */ = {
 			isa = PBXGroup;
 			children = (
+				82E78EF61D573A8B0040B015 /* CTColumnView.h */,
+				82E78EF71D573A8B0040B015 /* CTColumnView.m */,
 				82E78EF41D57272D0040B015 /* text.txt */,
 				823A36B81D52ED97007A0231 /* CTView.h */,
 				823A36B91D52ED97007A0231 /* CTView.m */,
@@ -172,6 +177,7 @@
 				823A369F1D52E625007A0231 /* AppDelegate.m in Sources */,
 				82AA958A1D56526A00BF5B4F /* MarkupParser.m in Sources */,
 				823A369C1D52E625007A0231 /* main.m in Sources */,
+				82E78EF81D573A8B0040B015 /* CTColumnView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

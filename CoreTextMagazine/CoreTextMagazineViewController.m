@@ -21,6 +21,8 @@
     MarkupParser* p = [[MarkupParser alloc] init];
     NSAttributedString* attString = [p attrStringFromMarkup: text];
     [(CTView*)self.view setAttString: attString];
+    [(CTView *)[self view] buildFrames];
+
 }
 
 @end

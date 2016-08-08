@@ -7,14 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CTColumnView.h"
 
-@interface CTView : UIView
+@interface CTView : UIScrollView<UIScrollViewDelegate>
 
 @property (assign, nonatomic) float frameXOffset;
 @property (assign, nonatomic) float frameYOffset;
+@property (strong, nonatomic) NSMutableArray* frames;
 
 @property (strong, nonatomic) NSAttributedString * attString;
 
-- (void)drawRect:(CGRect)rect;
+//- (void)drawRect:(CGRect)rect;
+
+- (void)buildFrames;
 
 @end
