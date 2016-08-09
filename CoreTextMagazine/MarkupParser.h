@@ -21,6 +21,10 @@
     NSMutableArray* images;
 }
 
+
+
+
+
 @property (retain, nonatomic) NSString* font;
 @property (retain, nonatomic) UIColor* color;
 @property (retain, nonatomic) UIColor* strokeColor;

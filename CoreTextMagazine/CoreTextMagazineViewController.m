@@ -20,7 +20,7 @@
     NSString* text = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
     MarkupParser* p = [[MarkupParser alloc] init];
     NSAttributedString* attString = [p attrStringFromMarkup: text];
-    [(CTView*)self.view setAttString: attString];
+    [(CTView *)[self view] setAttString:attString withImages: p.images];
     [(CTView *)[self view] buildFrames];
 
 }

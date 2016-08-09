@@ -15,7 +15,10 @@
 @property (assign, nonatomic) float frameYOffset;
 @property (strong, nonatomic) NSMutableArray* frames;
 
+@property (strong, nonatomic) NSArray* images;
 @property (strong, nonatomic) NSAttributedString * attString;
+
+-(void)setAttString:(NSAttributedString *)attString withImages:(NSArray*)imgs;
 
 //- (void)drawRect:(CGRect)rect;
 

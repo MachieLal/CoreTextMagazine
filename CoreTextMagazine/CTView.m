@@ -59,9 +59,9 @@
     self.delegate = self;
     self.frames = [NSMutableArray array];
     
-    CGMutablePathRef path = CGPathCreateMutable(); //2
+//    CGMutablePathRef path = CGPathCreateMutable(); //2
     CGRect textFrame = CGRectInset(self.bounds, _frameXOffset, _frameYOffset);
-    CGPathAddRect(path, NULL, textFrame );
+//    CGPathAddRect(path, NULL, textFrame );
     
     CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)_attString);
     
@@ -69,8 +69,8 @@
     int columnIndex = 0;
     
     while (textPos < [_attString length]) { //4
-        CGPoint colOffset = CGPointMake( (columnIndex+1)*_frameXOffset + columnIndex*(textFrame.size.width/2), 20 );
-        CGRect colRect = CGRectMake(0, 0 , textFrame.size.width/2-10, textFrame.size.height-40);
+        CGPoint colOffset = CGPointMake( (columnIndex+1)*_frameXOffset + columnIndex*(textFrame.size.width/2), _frameYOffset );
+        CGRect colRect = CGRectMake(0, 0 , textFrame.size.width/2-_frameXOffset, textFrame.size.height);
         
         CGMutablePathRef path = CGPathCreateMutable();
         CGPathAddRect(path, NULL, colRect);
@@ -81,12 +81,12 @@
         
         //create an empty column view
         CTColumnView* content = [[CTColumnView alloc] initWithFrame: CGRectMake(0, 0, self.contentSize.width, self.contentSize.height)];
-        content.backgroundColor = [UIColor clearColor];
+        content.backgroundColor = [UIColor yellowColor];
         content.frame = CGRectMake(colOffset.x, colOffset.y, colRect.size.width, colRect.size.height) ;
         
         //set the column view contents and add it as subview
         [content setCTFrame:(__bridge id)frame];  //6
-        [self.frames addObject: (__bridge id)frame];
+//        [self.frames addObject: (__bridge id)frame];
         [self addSubview: content];
         
         //prepare for next frame
@@ -100,7 +100,13 @@
     
     //set the total width of the scroll view
     int totalPages = (columnIndex+1) / 2; //7
-    self.contentSize = CGSizeMake(totalPages*self.bounds.size.width, textFrame.size.height);
+    self.contentSize = CGSizeMake(totalPages*self.bounds.size.width, textFrame.size.height+100);
+}
+
+-(void)setAttString:(NSAttributedString *)string withImages:(NSArray*)imgs
+{
+    self.attString = string;
+    self.images = imgs;
 }
 
 @end
