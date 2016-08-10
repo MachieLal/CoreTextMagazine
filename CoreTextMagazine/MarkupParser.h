@@ -25,12 +25,12 @@
 
 
 
-@property (retain, nonatomic) NSString* font;
-@property (retain, nonatomic) UIColor* color;
-@property (retain, nonatomic) UIColor* strokeColor;
+@property (strong, nonatomic) NSString* font;
+@property (strong, nonatomic) UIColor* color;
+@property (strong, nonatomic) UIColor* strokeColor;
 @property (assign, readwrite) float strokeWidth;
 
-@property (retain, nonatomic) NSMutableArray* images;
+@property (strong, nonatomic) NSMutableArray* images;
 
 -(NSAttributedString*)attrStringFromMarkup:(NSString*)html;
 

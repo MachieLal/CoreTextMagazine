@@ -16,12 +16,13 @@
 {
     [super viewDidLoad];
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"text" ofType:@"txt"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"zombies" ofType:@"txt"];
     NSString* text = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
-    MarkupParser* p = [[MarkupParser alloc] init];
-    NSAttributedString* attString = [p attrStringFromMarkup: text];
-    [(CTView *)[self view] setAttString:attString withImages: p.images];
+    MarkupParser* parser = [[MarkupParser alloc] init];
+    NSAttributedString* attString = [parser attrStringFromMarkup: text];
+    [(CTView *)[self view] setAttString:attString withImages: parser.images];
     [(CTView *)[self view] buildFrames];
+    
 
 }
 

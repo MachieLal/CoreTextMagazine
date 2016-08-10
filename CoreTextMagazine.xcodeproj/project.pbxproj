@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		822382391D5A5A7000104033 /* zombies.txt in Resources */ = {isa = PBXBuildFile; fileRef = 822382351D5A5A7000104033 /* zombies.txt */; };
+		8223823A1D5A5A7000104033 /* zombie3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 822382361D5A5A7000104033 /* zombie3.jpg */; };
+		8223823B1D5A5A7000104033 /* zombie2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 822382371D5A5A7000104033 /* zombie2.jpg */; };
+		8223823C1D5A5A7000104033 /* zombie1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 822382381D5A5A7000104033 /* zombie1.jpg */; };
 		823A369C1D52E625007A0231 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 823A369B1D52E625007A0231 /* main.m */; };
 		823A369F1D52E625007A0231 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 823A369E1D52E625007A0231 /* AppDelegate.m */; };
 		823A36A21D52E625007A0231 /* CoreTextMagazineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 823A36A11D52E625007A0231 /* CoreTextMagazineViewController.m */; };
@@ -16,11 +20,14 @@
 		823A36B21D52E684007A0231 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 823A36B11D52E684007A0231 /* CoreText.framework */; };
 		823A36BA1D52ED97007A0231 /* CTView.m in Sources */ = {isa = PBXBuildFile; fileRef = 823A36B91D52ED97007A0231 /* CTView.m */; };
 		82AA958A1D56526A00BF5B4F /* MarkupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 82AA95891D56526A00BF5B4F /* MarkupParser.m */; };
-		82E78EF51D57272D0040B015 /* text.txt in Resources */ = {isa = PBXBuildFile; fileRef = 82E78EF41D57272D0040B015 /* text.txt */; };
 		82E78EF81D573A8B0040B015 /* CTColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E78EF71D573A8B0040B015 /* CTColumnView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		822382351D5A5A7000104033 /* zombies.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zombies.txt; sourceTree = "<group>"; };
+		822382361D5A5A7000104033 /* zombie3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zombie3.jpg; sourceTree = "<group>"; };
+		822382371D5A5A7000104033 /* zombie2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zombie2.jpg; sourceTree = "<group>"; };
+		822382381D5A5A7000104033 /* zombie1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zombie1.jpg; sourceTree = "<group>"; };
 		823A36971D52E625007A0231 /* CoreTextMagazine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreTextMagazine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		823A369B1D52E625007A0231 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		823A369D1D52E625007A0231 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -36,7 +43,6 @@
 		823A36B91D52ED97007A0231 /* CTView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTView.m; sourceTree = "<group>"; };
 		82AA95881D56526900BF5B4F /* MarkupParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkupParser.h; sourceTree = "<group>"; };
 		82AA95891D56526A00BF5B4F /* MarkupParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkupParser.m; sourceTree = "<group>"; };
-		82E78EF41D57272D0040B015 /* text.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text.txt; sourceTree = "<group>"; };
 		82E78EF61D573A8B0040B015 /* CTColumnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTColumnView.h; sourceTree = "<group>"; };
 		82E78EF71D573A8B0040B015 /* CTColumnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTColumnView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,7 +80,10 @@
 			children = (
 				82E78EF61D573A8B0040B015 /* CTColumnView.h */,
 				82E78EF71D573A8B0040B015 /* CTColumnView.m */,
-				82E78EF41D57272D0040B015 /* text.txt */,
+				822382351D5A5A7000104033 /* zombies.txt */,
+				822382361D5A5A7000104033 /* zombie3.jpg */,
+				822382371D5A5A7000104033 /* zombie2.jpg */,
+				822382381D5A5A7000104033 /* zombie1.jpg */,
 				823A36B81D52ED97007A0231 /* CTView.h */,
 				823A36B91D52ED97007A0231 /* CTView.m */,
 				82AA95881D56526900BF5B4F /* MarkupParser.h */,
@@ -159,9 +168,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				823A36AA1D52E625007A0231 /* LaunchScreen.storyboard in Resources */,
+				8223823C1D5A5A7000104033 /* zombie1.jpg in Resources */,
+				8223823A1D5A5A7000104033 /* zombie3.jpg in Resources */,
 				823A36A71D52E625007A0231 /* Assets.xcassets in Resources */,
+				8223823B1D5A5A7000104033 /* zombie2.jpg in Resources */,
 				823A36A51D52E625007A0231 /* Main.storyboard in Resources */,
-				82E78EF51D57272D0040B015 /* text.txt in Resources */,
+				822382391D5A5A7000104033 /* zombies.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

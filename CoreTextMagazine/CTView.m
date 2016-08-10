@@ -87,6 +87,8 @@
         //set the column view contents and add it as subview
         [content setCTFrame:(__bridge id)frame];  //6
 //        [self.frames addObject: (__bridge id)frame];
+        [self attachImagesWithFrame:frame inColumnView: content];
+
         [self addSubview: content];
         
         //prepare for next frame
@@ -107,6 +109,82 @@
 {
     self.attString = string;
     self.images = imgs;
+    
+    CTTextAlignment alignment = kCTTextAlignmentJustified;
+    
+    CTParagraphStyleSetting settings[] = {
+        {kCTParagraphStyleSpecifierAlignment, sizeof(alignment), &alignment},
+    };
+    CTParagraphStyleRef paragraphStyle = CTParagraphStyleCreate(settings, sizeof(settings) / sizeof(settings[0]));
+    NSDictionary *attrDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    (id)paragraphStyle, (NSString*)kCTParagraphStyleAttributeName,
+                                    nil];
+    
+    NSMutableAttributedString* stringCopy = [[NSMutableAttributedString alloc] initWithAttributedString:self.attString];
+    [stringCopy addAttributes:attrDictionary range:NSMakeRange(0, [_attString length])];
+    self.attString = (NSAttributedString*)stringCopy;
+}
+
+-(void)attachImagesWithFrame:(CTFrameRef)frame inColumnView:(CTColumnView*)col
+{
+    //drawing images
+    NSArray *lines = (NSArray *)CTFrameGetLines(frame); //1
+    
+    CGPoint origins[[lines count]];// Declaring a static array with number of elements = [lines count]
+    CTFrameGetLineOrigins(frame, CFRangeMake(0, 0), origins); //2
+    
+    int imgIndex = 0; //3
+    NSDictionary* nextImage = [self.images objectAtIndex:imgIndex];
+    int imgLocation = [[nextImage objectForKey:@"location"] intValue];
+    
+    //find images for the current column
+    CFRange frameRange = CTFrameGetVisibleStringRange(frame); //4
+    while ( imgLocation < frameRange.location ) {
+        imgIndex++;
+        if (imgIndex>=[self.images count]) return; //quit if no images for this column
+        nextImage = [self.images objectAtIndex:imgIndex];
+        imgLocation = [[nextImage objectForKey:@"location"] intValue];
+    }
+    
+    NSUInteger lineIndex = 0;
+    for (id lineObj in lines) { //5
+        CTLineRef line = (__bridge CTLineRef)lineObj;
+        
+        for (id runObj in (NSArray *)CTLineGetGlyphRuns(line)) { //6
+            CTRunRef run = (__bridge CTRunRef)runObj;
+            CFRange runRange = CTRunGetStringRange(run);
+            
+            if ( runRange.location <= imgLocation && runRange.location+runRange.length > imgLocation ) { //7
+                CGRect runBounds;
+                CGFloat ascent;//height above the baseline
+                CGFloat descent;//height below the baseline
+                runBounds.size.width = CTRunGetTypographicBounds(run, CFRangeMake(0, 0), &ascent, &descent, NULL); //8
+                runBounds.size.height = ascent + descent;
+                
+                CGFloat xOffset = CTLineGetOffsetForStringIndex(line, CTRunGetStringRange(run).location, NULL); //9
+                runBounds.origin.x = origins[lineIndex].x + self.frame.origin.x + xOffset + _frameXOffset;
+                runBounds.origin.y = origins[lineIndex].y + self.frame.origin.y + _frameYOffset;
+                runBounds.origin.y -= descent;
+                
+                UIImage *img = [UIImage imageNamed: [nextImage objectForKey:@"fileName"] ];
+                CGPathRef pathRef = CTFrameGetPath(frame); //10
+                CGRect colRect = CGPathGetBoundingBox(pathRef);
+                
+                CGRect imgBounds = CGRectOffset(runBounds, colRect.origin.x - _frameXOffset - self.contentOffset.x, colRect.origin.y - _frameYOffset - self.frame.origin.y);
+                [col.images addObject: //11
+                 [NSArray arrayWithObjects:img, NSStringFromCGRect(imgBounds) , nil]
+                 ];
+                //load the next image //12
+                imgIndex++;
+                if (imgIndex < [self.images count]) {
+                    nextImage = [self.images objectAtIndex: imgIndex];
+                    imgLocation = [[nextImage objectForKey: @"location"] intValue];
+                }
+                
+            }
+        }
+        lineIndex++;
+    }
 }
 
 @end

@@ -20,6 +20,8 @@
 
 -(void)setAttString:(NSAttributedString *)attString withImages:(NSArray*)imgs;
 
+-(void)attachImagesWithFrame:(CTFrameRef)f inColumnView:(CTColumnView*)col;
+
 //- (void)drawRect:(CGRect)rect;
 
 - (void)buildFrames;

@@ -12,6 +12,7 @@
 @interface CTColumnView : UIView {
     id ctFrame;
 }
+@property (strong, nonatomic) NSMutableArray* images;
 
 -(void)setCTFrame:(id)f;
 @end
