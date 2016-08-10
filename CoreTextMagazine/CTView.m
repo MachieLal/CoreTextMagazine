@@ -115,7 +115,7 @@
     CTParagraphStyleSetting settings[] = {
         {kCTParagraphStyleSpecifierAlignment, sizeof(alignment), &alignment},
     };
-    CTParagraphStyleRef paragraphStyle = CTParagraphStyleCreate(settings, sizeof(settings) / sizeof(settings[0]));
+    CTParagraphStyleRef paragraphStyle = CTParagraphStyleCreate(settings, sizeof(settings) / sizeof(settings[0])); //{ settingCount == sizeof(settings) / sizeof(settings[0]) }
     NSDictionary *attrDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                     (id)paragraphStyle, (NSString*)kCTParagraphStyleAttributeName,
                                     nil];
@@ -147,11 +147,11 @@
     }
     
     NSUInteger lineIndex = 0;
-    for (id lineObj in lines) { //5
-        CTLineRef line = (__bridge CTLineRef)lineObj;
+    for (id lineObject in lines) { //5
+        CTLineRef line = (__bridge CTLineRef)lineObject;
         
-        for (id runObj in (NSArray *)CTLineGetGlyphRuns(line)) { //6
-            CTRunRef run = (__bridge CTRunRef)runObj;
+        for (id runObject in (NSArray *)CTLineGetGlyphRuns(line)) { //6
+            CTRunRef run = (__bridge CTRunRef)runObject;
             CFRange runRange = CTRunGetStringRange(run);
             
             if ( runRange.location <= imgLocation && runRange.location+runRange.length > imgLocation ) { //7
