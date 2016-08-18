@@ -87,7 +87,7 @@
         //set the column view contents and add it as subview
         [content setCTFrame:(__bridge id)frame];  //6
 //        [self.frames addObject: (__bridge id)frame];
-        [self attachImagesWithFrame:frame inColumnView: content];
+//        [self attachImagesWithFrame:frame inColumnView: content];
 
         [self addSubview: content];
         
